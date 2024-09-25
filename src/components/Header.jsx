@@ -9,7 +9,7 @@ const Header = () => {
           <img
             src={lovdlogo}
             alt="L0vd Logo"
-            className="w-[50px] h-[42px] mt-[1.49px]"
+            className="w-[50px] h-[42px] "
           />
           <span className=" w-[74px] h-[45px] font-poppins font-semibold text-3xl tracking-wider">
             L0vd

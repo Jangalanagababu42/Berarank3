@@ -7,7 +7,7 @@ import SingleValidator from './SingleValidator';
 function ValidatorScoring() {
   return (
     <>
-      <div>
+      <div className='flex flex-col mb-2'>
         <div className="grid grid-cols-12 space-x-5 content-center h-full mb-10">
           {/* Validator Scoring Title */}
           <div className="col-start-2 col-span-4 font-poppins font-regular text-[40px] flex items-center">
@@ -92,7 +92,7 @@ function ValidatorScoring() {
                 <p className="font-bold text-[14px]">L0vd Score</p>
                 <p className="font-regular text-[18px]">90.99%</p>
               </div>
-              <div className=" grid 	 justify-items-center font-poppins px-[10px] py-[10px] ring-1 ring-offset ring-lightblue-stroke text-main-blue rounded-[10px] w-[43px] h-[47px]">
+              <div className=" grid justify-items-center font-poppins px-[10px] py-[10px] ring-1 ring-offset ring-lightblue-stroke text-main-blue rounded-[10px] w-[43px] h-[47px]">
                 <p className="font-regular text-[18px]">1</p>
               </div>
             </div>
@@ -105,7 +105,15 @@ function ValidatorScoring() {
         <SingleValidator />
         <SingleValidator />
         <SingleValidator />
-        <div>panda</div>
+        <div className='flex self-center justify-center px-4 py-2 rounded-lg bg-white text-[18px]'>
+
+     
+       Load more
+
+        </div>
+        <div className='flex justify-center'>
+        <img src="./bear.png" alt="bear" />
+        </div>
       </div>
     </>
   );
