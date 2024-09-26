@@ -2,7 +2,7 @@ import lovdlogo from '../assets/lovdlogo.svg';
 import magnify from '../assets/magnify.svg';
 const Header = () => {
   return (
-    <header className="w-full px-4 px-[160px] py-4 bg-white ">
+    <header className="sticky top-0  z-50 w-full px-4 px-[160px] py-4 bg-white ">
       <div className="grid grid-cols-12 items-center space-x-[95px]">
         {/* Logo Div */}
         <div className="col-start-1 col-span-[3/2] flex w-[136px] h-[45px] space-x-3  ">
