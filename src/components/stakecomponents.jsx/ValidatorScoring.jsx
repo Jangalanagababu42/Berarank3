@@ -377,6 +377,7 @@ import magnify from '../../assets/magnify.svg';
 import score from '../../assets/score.svg';
 import SingleValidator from './SingleValidator';
 import { useState, useRef, useEffect, useCallback } from 'react';
+import LoadingSpinner from './LoadingSpinner';
 
 function ValidatorScoring() {
   // Load 10 validators by default
@@ -489,7 +490,7 @@ function ValidatorScoring() {
 
         {/* Infinite Scroll Loader Element */}
         <div ref={loader} className="flex justify-center p-5 text-xl text-gray-500">
-          {loading ? 'Loading...' : hasMore ? 'Scroll down to load more' : 'No more validators'}
+          {loading ? <LoadingSpinner /> : hasMore ? 'Scroll down to load more' : 'No more validators'}
         </div>
       </div>
     </>
