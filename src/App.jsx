@@ -17,7 +17,7 @@ function App() {
 
       <StakePage />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
