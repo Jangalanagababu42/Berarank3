@@ -406,12 +406,29 @@ import HoneyJar from '../assets/HoneyJar.svg';
 import bear from '../assets/bear.svg';
 import Footer from './Footer';
 import ValidatorScoring from './stakecomponents.jsx/ValidatorScoring';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useLayoutEffect } from 'react';
 
 function StakePage() {
   const [bgHeight, setBgHeight] = useState(0);
   const validatorRef = useRef(null);
+  
+  useEffect(() => {
+    // Disable automatic scroll restoration
+    window.history.scrollRestoration = 'manual';
 
+    // Scroll to the top after the page fully loads
+    const onLoadScrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
+
+    // Run scroll to top
+    onLoadScrollToTop();
+
+    return () => {
+      // Cleanup listener if needed
+      window.removeEventListener('load', onLoadScrollToTop);
+    };
+  }, []);
   useEffect(() => {
     // Dynamically adjust background height based on validator cards
     if (validatorRef.current) {
