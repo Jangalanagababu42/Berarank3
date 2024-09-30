@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="w-[1440px]">
+    <div >
       <Header />
       <div  
       // style={{
