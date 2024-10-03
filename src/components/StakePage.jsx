@@ -63,16 +63,16 @@ function StakePage() {
 
         {/* Yellow Wave Background */}
         <div className="absolute top-[350px] left-0 w-full -z-10">
-          <img src="/bg2.png" alt="Yellow Background with Waves" className="w-full" />
+          <img src="/bg2.png" alt="Yellow Background with Waves" className="w-full h-[2558px]" />
         </div>
 
         {/* Dynamic Background Color starting from top: 3175px */}
         <div
           className="absolute left-0 w-full -z-10"
           style={{
-            top: '3160px', // Start the background color just below the yellow wave
+            top: '2906px', // Start the background color just below the yellow wave
             backgroundColor: '#E2C7BB',
-            height: `${bgHeight -2300}px`, // Dynamically extend with validators
+            height: `${bgHeight -2000}px`, // Dynamically extend with validators
           }}
         ></div>
 
