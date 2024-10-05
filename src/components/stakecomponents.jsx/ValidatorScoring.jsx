@@ -1308,7 +1308,7 @@ function ValidatorScoring() {
           {/* Sorting Dropdown */}
           <div className="col-start-6 flex items-center">
             <Menu as="div" className="relative inline-block text-left p-[10px]">
-              <MenuButton className="inline-flex justify-center gap-x-5 rounded-[10px] bg-white px-3 py-2 text-grey-stroke text-[16px] font-poppins font-regular text-gray-900 ring-1 ring-inset ring-lightblue-stroke hover:bg-gray-50 w-[150px] h-[45px]">
+              <MenuButton className="inline-flex justify-center gap-x-5 rounded-[10px] bg-white px-3 py-2 text-grey-stroke text-[16px] font-poppins font-regular  ring-1 ring-inset ring-lightblue-stroke hover:bg-gray-50 w-[150px] h-[45px]">
                 Sort By
                 <img
                   src={dropdown}
@@ -1401,7 +1401,7 @@ function ValidatorScoring() {
                 placeholder="Search"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                className="w-full h-full ring-1 ring-inset ring-lightblue-stroke rounded-[10px] px-12 py-3 md:py-4 text-[16px] text-grey-stroke"
+                className="w-full h-full ring-1 ring-inset ring-lightblue-stroke focus:outline-none focus:ring-1 focus:ring-inset focus:ring-lightblue-stroke rounded-[10px] px-12 py-3 md:py-4 text-[16px] text-grey-stroke"
               />
               <span className="absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400">
                 <img src={magnify} alt="magnify" className="w-6 h-6" />
@@ -1413,13 +1413,13 @@ function ValidatorScoring() {
         {/* Header Labels */}
         <div className="grid grid-cols-12 mb-2">
           <div className='col-start-2 col-span-10 flex justify-between font-poppins font-bold'>
-            <div className='flex space-x-20 items-center justify-center px-2'>
+            <div className='flex space-x-8 items-center justify-center px-3'>
               <span>Rank</span>
               <span>Validator</span>
             </div>
-            <div className='flex justify-between space-x-20'>
+            <div className='flex justify-between space-x-10'>
               <div className='px-20'>Incentives</div>
-              <div className='flex items-center space-x-12'>
+              <div className='flex items-center space-x-8 px-6'>
                 <div>Current APY</div>
                 <div className='flex items-center'>
                L0vd Score
@@ -1459,7 +1459,7 @@ function ValidatorScoring() {
           ) : visibleCount < filterValidators(allValidators, searchTerm).length ? (
             <button
               onClick={loadMoreValidators}
-              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+              className="bg-main-blue text-white px-4 py-2 rounded-md hover:bg-blue-600"
             >
               Load More
             </button>

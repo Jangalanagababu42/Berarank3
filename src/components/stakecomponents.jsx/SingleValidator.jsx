@@ -89,6 +89,7 @@
 
 // export default SingleValidator;
 import React from "react";
+import altlogo  from '../../assets/altlogo.svg';
 
 function SingleValidator(props) {
   const{index,validator}=props;
@@ -98,12 +99,12 @@ function SingleValidator(props) {
         <div className="col-start-2 col-span-10 flex justify-between ring-1 ring-offset ring-light-blue rounded-[20px] h-[72px] py-2 pl-5 pr-2 bg-white mb-5">
           <div className="flex space-x-6 items-center justify-center">
             <div className="flex justify-center items-center font-poppins ring-1 ring-offset ring-lightblue-stroke text-main-blue rounded-full w-[40px] h-[40px]">
-              <p className="font-regular text-[18px]">{index}</p>
+              <p className="font-regular text-[18px]">{index+1}</p>
             </div>
             <div className="flex items-center  space-x-2">
 
             <div className="ring-1 ring-inset ring-light-blue rounded-full w-[40px] h-[40px] flex items-center justify-center">
-              <img src={validator.logo_uri} alt="logo img" className="object-fill rounded-full" />
+              <img src={validator.logo_uri ? validator.logo_uri : altlogo} alt="logo img" className="object-fill rounded-full" />
             </div>
             <div className="flex flex-col font-poppins font-regular">
               <p className="text-[16px]">{validator.name}</p>
@@ -133,7 +134,11 @@ function SingleValidator(props) {
                       className="object-fill rounded-full"
                     />
                   ) : (
-                    <p>No logo available</p>
+                    <img
+                      src={altlogo}
+                      alt={`Gauge Logo ${index + 1}`}
+                      className="object-fill rounded-full"
+                    />
                   )}
                 </div>
               ))}
