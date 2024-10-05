@@ -24,7 +24,9 @@ export default {
         'btn-blue': '#266CDE',
         'light-blue':'#DAE4F9',
         'light-green':'#DAF9E6',
-        'dark-green':'#478D55'
+        'dark-green':'#478D55',
+        'grey-text':'#797979',
+        'grey-table':'#717171'
         
       },
     },

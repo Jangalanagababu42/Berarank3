@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
         <div className="space-y-4">
           <h3 className="text-xl font-bold">Social Networks</h3>
-          <ul className="flex flex-row space-x-5">
+          <ul className="flex flex-row space-x-10">
             <li>
               <a
                 href="https://twitter.com"
