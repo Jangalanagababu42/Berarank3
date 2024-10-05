@@ -815,7 +815,7 @@
 // import { Menu, MenuButton } from '@headlessui/react';
 // import dropdown from '../../assets/dropdown.svg';
 // import magnify from '../../assets/magnify.svg';
-import info from '../../assets/info.svg';
+// import info from '../../assets/info.svg';
 // import SingleValidator from './SingleValidator';
 // import { useState, useEffect } from 'react';
 // import LoadingSpinner from './LoadingSpinner';
@@ -995,12 +995,204 @@ import info from '../../assets/info.svg';
 // }
 
 // export default ValidatorScoring;
-import { Menu, MenuButton } from '@headlessui/react';
+// import { Menu, MenuButton } from '@headlessui/react';
+// import dropdown from '../../assets/dropdown.svg';
+// import magnify from '../../assets/magnify.svg';
+// import SingleValidator from './SingleValidator';
+// import HoverCard from './HoverCard'; // Import HoverCard component
+// import { useState, useEffect, useRef } from 'react';
+// import LoadingSpinner from './LoadingSpinner';
+
+// function ValidatorScoring() {
+//   // State to hold all validator data fetched from the API
+//   const [allValidators, setAllValidators] = useState([]);
+//   const [displayValidators, setDisplayValidators] = useState([]); // State to manage displayed validators
+//   const [loading, setLoading] = useState(false); // Track loading state
+//   const [error, setError] = useState(null);
+//   const [visibleCount, setVisibleCount] = useState(20); // Track how many validators are currently visible
+//   const [searchTerm, setSearchTerm] = useState(''); // Track the search term input by the user
+//   const [hovered, setHovered] = useState(false); // Track whether L0vd Score is hovered
+//   const scoreRef = useRef(null); // Reference to the L0vd Score element
+
+//   // Function to fetch data from the API
+//   const fetchValidators = async () => {
+//     try {
+//       setLoading(true);
+//       const response = await fetch(`https://bindexer.l0vd.com/api/rest/validators`, {
+//         method: 'GET',
+//         headers: {
+//           'x-hasura-admin-secret': 'eENFLKSNLF2123sdFKM',
+//           'Content-Type': 'application/json',
+//         },
+//       });
+
+//       if (!response.ok) {
+//         throw new Error(`Error: ${response.status}`);
+//       }
+
+//       const result = await response.json();
+//       if (result.validators && result.validators.length > 0) {
+//         setAllValidators(result.validators);
+//         setDisplayValidators(result.validators.slice(0, visibleCount)); // Display only the first 20 validators
+//       } else {
+//         setError('No validators found.');
+//       }
+//     } catch (error) {
+//       setError(error.message);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   // Fetch initial validators when the component mounts
+//   useEffect(() => {
+//     fetchValidators(); // Load the validators on initial load
+//   }, []);
+
+//   // Function to handle search input change
+//   const handleSearchChange = (e) => {
+//     const value = e.target.value;
+//     setSearchTerm(value);
+//     setVisibleCount(20); // Reset visible count to initial value when search term changes
+//     setDisplayValidators(filterValidators(allValidators, value).slice(0, 20));
+//   };
+
+//   // Function to filter validators based on the search term
+//   const filterValidators = (validators, term) => {
+//     if (!term) return validators;
+//     return validators.filter((validator) =>
+//       validator.name.toLowerCase().includes(term.toLowerCase())
+//     );
+//   };
+
+//   // Function to load more validators when button is clicked
+//   const loadMoreValidators = () => {
+//     if (loading) return; // Prevent loading if already in progress
+//     const newVisibleCount = visibleCount + 20; // Increase the visible count by 20
+//     setVisibleCount(newVisibleCount);
+//     setDisplayValidators(filterValidators(allValidators, searchTerm).slice(0, newVisibleCount)); // Update the displayed validators
+//   };
+
+//   // Hover handlers for the L0vd Score
+//   const handleMouseEnter = () => {
+//     setHovered(true);
+//   };
+
+//   const handleMouseLeave = () => {
+//     setHovered(false);
+//   };
+
+//   return (
+//     <>
+//       <div className='flex flex-col mb-2 relative'>
+//         <div className="grid grid-cols-12 space-x-5 content-center h-full mb-10">
+//           <div className="col-start-2 col-span-4 font-poppins font-regular text-[40px] flex items-center">
+//             Validator Scoring
+//           </div>
+
+//           <div className="col-start-6 flex items-center">
+//             <Menu as="div" className="relative inline-block text-left p-[10px]">
+//               <MenuButton className="inline-flex justify-center gap-x-5 rounded-[10px] bg-white px-3 py-2 text-grey-stroke text-[16px] font-poppins font-regular text-gray-900 ring-1 ring-inset ring-lightblue-stroke hover:bg-gray-50 w-[150px] h-[45px]">
+//                 Score
+//                 <img
+//                   src={dropdown}
+//                   alt="dropdown"
+//                   className="w-[10px] h-[9px] self-center"
+//                 />
+//               </MenuButton>
+//             </Menu>
+//           </div>
+
+//           <div className="col-start-8 col-span-4 flex items-center justify-center">
+//             <div className="relative w-[303px] h-[47px] m-2.5">
+//               <input
+//                 type="text"
+//                 placeholder="Search"
+//                 value={searchTerm}
+//                 onChange={handleSearchChange}
+//                 className="w-full h-full ring-1 ring-inset ring-lightblue-stroke rounded-[10px] px-12 py-3 md:py-4 text-[16px] text-grey-stroke"
+//               />
+//               <span className="absolute top-1/2 left-4 transform -translate-y-1/2 text-gray-400">
+//                 <img src={magnify} alt="magnify" className="w-6 h-6" />
+//               </span>
+//             </div>
+//           </div>
+//         </div>
+
+//         <div className="grid grid-cols-12 mb-2">
+//           <div className='col-start-2 col-span-10 flex justify-between font-poppins font-bold'>
+//             <div className='flex space-x-20 items-center justify-center px-2'>
+//               <span>Rank</span>
+//               <span>Validator</span>
+//             </div>
+//             <div className='flex justify-between space-x-20 '>
+//             <div className='px-20 '>Incentives</div>
+           
+//               <div className='flex items-center space-x-12 '>
+              
+
+//             <div>Current APY</div>
+//               <div className='flex items-center'>
+//                  L0vd Score
+//                 <div
+//                   ref={scoreRef}
+//                   onMouseEnter={handleMouseEnter}
+//                   onMouseLeave={handleMouseLeave}
+//                   className="relative cursor-pointer ml-1"
+//                 ><img src={info} alt="score" />
+//                   {hovered && scoreRef.current && (
+//                     <div
+//                     className="absolute z-10 p-4 w-[350px] bg-white rounded-lg shadow-md border border-gray-300 text-sm text-gray-800"
+//                     style={{
+//                         top: scoreRef.current.offsetHeight ,
+//                         right: scoreRef.current.offsetWidth , // Adjust to show on the right under the score
+//                       }}
+//                     >
+//                       <HoverCard />
+//                     </div>
+//                   )}
+//                   </div> 
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Render Validators from API */}
+//         {displayValidators.map((validator, index) => (
+//           <SingleValidator key={index} index={index} validator={validator} />
+//         ))}
+
+//         {/* Load More Button */}
+//         <div className="flex justify-center p-5 text-xl text-gray-500">
+//           {loading ? (
+//             <LoadingSpinner />
+//           ) : visibleCount < filterValidators(allValidators, searchTerm).length ? (
+//             <button
+//               onClick={loadMoreValidators}
+//               className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+//             >
+//               Load More
+//             </button>
+//           ) : (
+//             'No more validators'
+//           )}
+//         </div>
+
+//         {error && <div className="text-red-500">{error}</div>}
+//       </div>
+//     </>
+//   );
+// }
+
+// export default ValidatorScoring;
+import { useState, useEffect, useRef } from 'react';
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react';
 import dropdown from '../../assets/dropdown.svg';
 import magnify from '../../assets/magnify.svg';
+import info from '../../assets/info.svg';
 import SingleValidator from './SingleValidator';
 import HoverCard from './HoverCard'; // Import HoverCard component
-import { useState, useEffect, useRef } from 'react';
 import LoadingSpinner from './LoadingSpinner';
 
 function ValidatorScoring() {
@@ -1011,6 +1203,7 @@ function ValidatorScoring() {
   const [error, setError] = useState(null);
   const [visibleCount, setVisibleCount] = useState(20); // Track how many validators are currently visible
   const [searchTerm, setSearchTerm] = useState(''); // Track the search term input by the user
+  const [sortCriteria, setSortCriteria] = useState(null); // State to manage sort criteria
   const [hovered, setHovered] = useState(false); // Track whether L0vd Score is hovered
   const scoreRef = useRef(null); // Reference to the L0vd Score element
 
@@ -1073,13 +1266,35 @@ function ValidatorScoring() {
     setDisplayValidators(filterValidators(allValidators, searchTerm).slice(0, newVisibleCount)); // Update the displayed validators
   };
 
-  // Hover handlers for the L0vd Score
-  const handleMouseEnter = () => {
-    setHovered(true);
-  };
+  // Function to handle sorting logic
+  const handleSort = (criteria) => {
+    setSortCriteria(criteria);
+    let sortedValidators = [...allValidators];
 
-  const handleMouseLeave = () => {
-    setHovered(false);
+    switch (criteria) {
+      case 'L0vdScoreAsc':
+        sortedValidators.sort((a, b) => a.l0vd_score - b.l0vd_score);
+        break;
+      case 'L0vdScoreDesc':
+        sortedValidators.sort((a, b) => b.l0vd_score - a.l0vd_score);
+        break;
+      case 'APYAsc':
+        sortedValidators.sort((a, b) => a.apy - b.apy);
+        break;
+      case 'APYDesc':
+        sortedValidators.sort((a, b) => b.apy - a.apy);
+        break;
+      case 'TVLAsc':
+        sortedValidators.sort((a, b) => a.current_stake.amount - b.current_stake.amount);
+        break;
+      case 'TVLDesc':
+        sortedValidators.sort((a, b) => b.current_stake.amount- a.current_stake.amount);
+        break;
+      default:
+        break;
+    }
+
+    setDisplayValidators(sortedValidators.slice(0, visibleCount));
   };
 
   return (
@@ -1090,19 +1305,95 @@ function ValidatorScoring() {
             Validator Scoring
           </div>
 
+          {/* Sorting Dropdown */}
           <div className="col-start-6 flex items-center">
             <Menu as="div" className="relative inline-block text-left p-[10px]">
               <MenuButton className="inline-flex justify-center gap-x-5 rounded-[10px] bg-white px-3 py-2 text-grey-stroke text-[16px] font-poppins font-regular text-gray-900 ring-1 ring-inset ring-lightblue-stroke hover:bg-gray-50 w-[150px] h-[45px]">
-                Score
+                Sort By
                 <img
                   src={dropdown}
                   alt="dropdown"
                   className="w-[10px] h-[9px] self-center"
                 />
               </MenuButton>
+              <MenuItems className="absolute right-7 mt-2 w-50 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <MenuItem>
+                  {({ active }) => (
+                    <button
+                      onClick={() => handleSort('L0vdScoreAsc')}
+                      className={`${
+                        active ? 'bg-gray-100' : ''
+                      } group flex rounded-md items-center w-full px-4 py-1 text-sm text-gray-700`}
+                    >
+                      L0vd Score ↑
+                    </button>
+                  )}
+                </MenuItem>
+                <MenuItem>
+                  {({ active }) => (
+                    <button
+                      onClick={() => handleSort('L0vdScoreDesc')}
+                      className={`${
+                        active ? 'bg-gray-100' : ''
+                      } group flex rounded-md items-center w-full px-4 py-1 text-sm text-gray-700`}
+                    >
+                      L0vd Score ↓
+                    </button>
+                  )}
+                </MenuItem>
+                <MenuItem>
+                  {({ active }) => (
+                    <button
+                      onClick={() => handleSort('APYAsc')}
+                      className={`${
+                        active ? 'bg-gray-100' : ''
+                      } group flex rounded-md items-center w-full px-4 py-1 text-sm text-gray-700`}
+                    >
+                      Current APY ↑
+                    </button>
+                  )}
+                </MenuItem>
+                <MenuItem>
+                  {({ active }) => (
+                    <button
+                      onClick={() => handleSort('APYDesc')}
+                      className={`${
+                        active ? 'bg-gray-100' : ''
+                      } group flex rounded-md items-center w-full px-4 py-1 text-sm text-gray-700`}
+                    >
+                      Current APY ↓
+                    </button>
+                  )}
+                </MenuItem>
+                <MenuItem>
+                  {({ active }) => (
+                    <button
+                      onClick={() => handleSort('TVLAsc')}
+                      className={`${
+                        active ? 'bg-gray-100' : ''
+                      } group flex rounded-md items-center w-full px-4 py-1 text-sm text-gray-700`}
+                    >
+                      TVL ↑
+                    </button>
+                  )}
+                </MenuItem>
+                <MenuItem>
+                  {({ active }) => (
+                    <button
+                      onClick={() => handleSort('TVLDesc')}
+                      className={`${
+                        active ? 'bg-gray-100' : ''
+                      } group flex rounded-md items-center w-full px-4 py-1 text-sm text-gray-700`}
+                    >
+                      TVL ↓
+                    </button>
+                  )}
+                </MenuItem>
+              </MenuItems>
             </Menu>
           </div>
 
+          {/* Search Input */}
           <div className="col-start-8 col-span-4 flex items-center justify-center">
             <div className="relative w-[303px] h-[47px] m-2.5">
               <input
@@ -1119,25 +1410,23 @@ function ValidatorScoring() {
           </div>
         </div>
 
+        {/* Header Labels */}
         <div className="grid grid-cols-12 mb-2">
-          <div className='col-start-2 col-span-10 flex justify-between'>
+          <div className='col-start-2 col-span-10 flex justify-between font-poppins font-bold'>
             <div className='flex space-x-20 items-center justify-center px-2'>
               <span>Rank</span>
               <span>Validator</span>
             </div>
             <div className='flex justify-between space-x-20'>
-            <div className=''>Incentives</div>
-           
-              <div className='flex items-center space-x-2'>
-              
-
-            <div>Current APY</div>
-              <div className='flex items-center'>
-                 L0vd Score
-                <div
+              <div className='px-20'>Incentives</div>
+              <div className='flex items-center space-x-12'>
+                <div>Current APY</div>
+                <div className='flex items-center'>
+               L0vd Score
+               <div
                   ref={scoreRef}
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
+                  onMouseEnter={()=>setHovered(true)}
+                  onMouseLeave={()=>setHovered(false)}
                   className="relative cursor-pointer ml-1"
                 ><img src={info} alt="score" />
                   {hovered && scoreRef.current && (
@@ -1152,15 +1441,15 @@ function ValidatorScoring() {
                     </div>
                   )}
                   </div> 
-                </div>
+                  </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Render Validators from API */}
+        {/* Validator List */}
         {displayValidators.map((validator, index) => (
-          <SingleValidator key={index} validator={validator} />
+          <SingleValidator key={index} index={index} validator={validator} />
         ))}
 
         {/* Load More Button */}
