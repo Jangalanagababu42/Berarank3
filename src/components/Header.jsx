@@ -89,10 +89,10 @@ const Header = () => {
   const [showTooltip, setShowTooltip] = useState({ pools: false, guides: false });
 
   return (
-    <header className="sticky top-0 z-50 w-full px-4 px-[160px] py-4 bg-white">
+    <header className="sticky top-0 z-50 w-full px-[160px] py-4 bg-white">
       <div className="grid grid-cols-12 items-center">
         {/* Logo Div */}
-        <div className="col-start-1 col-span-3 flex flex-col items-center space-x-3">
+        <div className="col-start-1 col-span-3 flex flex-col  space-x-3">
           <div className='flex space-x-2 items-center'>
             <img src={logo_berarank} alt="L0vd Logo" className="w-[50px] h-[42px]" />
             <span className="font-poppins font-semibold text-3xl tracking-wider">
@@ -167,7 +167,7 @@ const Header = () => {
               )}
             </div>
           </div>
-          <button className="w-[187px] h-[53px] bg-main-blue text-white px-5 py-2.5 rounded-[10px] font-poppins font-medium text-white text-md">
+          <button className="w-[187px] h-[53px] bg-main-blue text-white px-2.5 py-2.5 rounded-[10px] font-poppins font-medium text-white text-sm">
             Connect wallet
           </button>
         </div>
