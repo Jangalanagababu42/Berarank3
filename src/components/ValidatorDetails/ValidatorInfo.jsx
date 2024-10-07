@@ -68,7 +68,16 @@ e.target.src = altlogo; // Set default image if API image fails
             </div>
             
         </div>
-        <div>ValidatorInfo</div>
+        <div className='flex justify-between items-center w-2/3 '>
+          <div>
+            <div>Active Incentives</div>
+            <div></div>
+          </div>
+          <div>
+            <div>Active Gauge vaults</div>
+            <div></div>
+          </div>
+        </div>
       </div>
     );
   }
