@@ -23,7 +23,7 @@ function ValidatorInfo({validatorDetails}) {
   const blueFilter = 'invert(33%) sepia(89%) saturate(3863%) hue-rotate(191deg) brightness(99%) contrast(95%)';
 
     return (
-      <div  className='space-y-[36px]'>
+      <div  className=' space-y-[36px]'>
         
             
             <div className="flex items-center  space-x-[16px]">
