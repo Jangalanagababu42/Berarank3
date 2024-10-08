@@ -65,7 +65,7 @@ const Footer = () => {
             alt="Heart Logo"
             className="mx-auto md:mr-1 mb-2"
           />
-          <p>&copy; LOvd Inc. All rights reserved</p>
+          <p>&copy; L0vd Inc. All rights reserved</p>
         </div>
       </div>
     </footer>

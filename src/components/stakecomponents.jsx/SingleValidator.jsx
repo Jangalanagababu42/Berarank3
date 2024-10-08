@@ -1,12 +1,19 @@
 
 import React from "react";
+
 import altlogo  from '../../assets/altlogo.svg';
 
 function SingleValidator(props) {
+ 
   const{index,validator}=props;
+  const handleClick = () => {
+    window.open(`/validator/${validator.id}`, '_blank'); // Open in a new tab
+  };
+console.log(validator,"val");
+
   return (
     <>
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 cursor-pointer"  onClick={handleClick}>
         <div className="col-start-2 col-span-10 flex justify-between ring-1 ring-offset ring-light-blue rounded-[20px] h-[72px] py-2 pl-5 pr-2 bg-white mb-5">
           <div className="flex space-x-6 items-center justify-center">
             <div className="flex justify-center items-center font-poppins ring-1 ring-offset ring-lightblue-stroke text-main-blue rounded-full w-[40px] h-[40px]">

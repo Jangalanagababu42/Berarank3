@@ -88,7 +88,7 @@ function StakePage() {
 
         {/* Footer */}
       </div>
-        <Footer />
+        {/* <Footer /> */}
     </>
   );
 }
